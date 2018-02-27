@@ -4,7 +4,8 @@ from flask import request
 
 app = Flask(__name__)
 username = []
-userid = 0
+userid = []
+count = 0
 
 
 @app.route('/', methods=['GET'])
@@ -24,10 +25,11 @@ def display_name(name):
 
 @app.route('/users', methods=['POST'])
 def post_users():
-    global userid
+    global count
     name = request.form['name']
-    userid += 1
+    count += 1
     username.append(name)
+    userid.append(count)
     return jsonify({'name': username}, {'id': userid})
 
 
