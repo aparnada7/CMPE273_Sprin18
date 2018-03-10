@@ -1,9 +1,9 @@
 import zmq
 
 # ZeroMQ Context
+# Define the socket using the "Context"
 context = zmq.Context()
 
-# Define the socket using the "Context"
 # This socket is for receiving all the messages.
 #RECEIVE 
 receiverSocket = context.socket(zmq.SUB)
@@ -26,3 +26,4 @@ while True:
     #Publishing received chat/user info to clients
     senderSocket.send_string(chatMsgRcvd)
     senderSocket.send_string(chatUserRcvd)
+
