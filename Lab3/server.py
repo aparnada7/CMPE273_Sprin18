@@ -23,7 +23,7 @@ while True:
     chatUserRcvd = receiverSocket.recv().decode()
     #Printing chat status on server for overall visiblity/clarity
     print("[{}]: {}".format(chatUserRcvd, chatMsgRcvd))
-    #Publishing received chat/user info to clients
+    #Publishing received chat/user info to clients.
     senderSocket.send_string(chatMsgRcvd)
     senderSocket.send_string(chatUserRcvd)
 
