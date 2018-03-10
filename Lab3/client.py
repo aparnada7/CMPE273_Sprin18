@@ -1,12 +1,9 @@
-import zmq
-import threading
-import sys
+import zmq, threading, sys
 
 # ZeroMQ Context
 context = zmq.Context()
 initiator = sys.argv[1]
 
-# Define the socket using the "Context"
 # This socket is for publishing/sending all the messages.
 #SEND
 senderSocket = context.socket(zmq.PUB)
@@ -24,10 +21,8 @@ print("User[{}] Connected to the chat server.".format(initiator))
 #Function to handle incoming messages, published by server to clients.
 def chat_handler():
     while True:
-        chatMsg = receiverSocket.recv()
-        lastChatUser = receiverSocket.recv()
-        chatMsg = chatMsg.decode()
-        lastChatUser = lastChatUser.decode()
+        chatMsg = receiverSocket.recv().decode()
+        lastChatUser = receiverSocket.recv().decode()
         # Duplicating initiator's own message in chat window is not required.
         # Hence, pass if initiator is same as lastChatUser.
         if lastChatUser == initiator:
@@ -35,7 +30,7 @@ def chat_handler():
         else:
             print("\n[{}]: {} \n[{}] > ".format(lastChatUser, chatMsg, initiator),  end="")
             
-
+            
 #Defining thread so that message receiving/chat handling on client side is continuous        
 def thread():
     thread = threading.Thread(target=chat_handler)
