@@ -40,6 +40,6 @@ def thread():
 thread()
 while True:
     inputChatMsg = input("[{}] > ".format(initiator))
-    #Send chat message and initiator info to server.
+    #Send chat message and initiator info to server
     senderSocket.send(inputChatMsg.encode())
     senderSocket.send(initiator.encode())
