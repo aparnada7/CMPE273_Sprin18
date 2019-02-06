@@ -12,20 +12,20 @@ FLASK_APP=hello.py flask run
 
 ##GET /
 '''sh
-curl -i http://127.0.0.1:5000/
+curl -i http://127.0.0.1:5000/  
 
 '''
 
 ##POST /users
 '''sh
-curl -i -X POST http://127.0.0.1:5000/users -d "name=<username>"
-curl -i -X POST http://127.0.0.1:5000/users -d "name=foo"
-curl -i -X POST http://127.0.0.1:5000/users -d "name=foo1"
-curl -i -X POST http://127.0.0.1:5000/users -d "name=foo2"
+curl -i -X POST http://127.0.0.1:5000/users -d "name=<username>"  
+curl -i -X POST http://127.0.0.1:5000/users -d "name=foo"  
+curl -i -X POST http://127.0.0.1:5000/users -d "name=foo1"  
+curl -i -X POST http://127.0.0.1:5000/users -d "name=foo2"  
 
-##GET /users/
-'''sh
-curl -i http://127.0.0.1:5000/users/
+##GET /users/  
+'''sh  
+curl -i http://127.0.0.1:5000/users/  
 '''
 
 ##DELETE /users//
